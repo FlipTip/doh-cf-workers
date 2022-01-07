@@ -9,8 +9,8 @@ async function handleRequest(request) {
     const contype = 'application/dns-message'
     const { method, headers, url } = request
     const { host, searchParams } = new URL(url)
-    if (method == 'GET' && searchParams.has('dns')) {
-        return await fetch(doh + '?dns=' + searchParams.get('dns'), {
+    if (method == 'GET' && searchParams.has('name')) {
+        return await fetch(doh + '?name=' + searchParams.get('name'), {
             method: 'GET',
             headers: {
                 'Accept': contype,
