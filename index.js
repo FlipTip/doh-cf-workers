@@ -20,8 +20,8 @@ async function handleRequest(request) {
         return await fetch(doh, {
             method: 'POST',
             headers: {
-                'Accept': contype,
-                'Content-Type': contype,
+                'accept': contype,
+                'content-type': contype,
             },
             body: await request.arrayBuffer()
         });
