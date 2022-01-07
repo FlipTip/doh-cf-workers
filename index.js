@@ -17,7 +17,7 @@ async function handleRequest(request) {
             }
         });
     } else if (method == 'POST' && headers.get('Content-Type')=='application/dns-message') {
-        return await fetch(doh, {
+        return await fetch(doh + '?name=' + searchParams.get('name'), {
             method: 'POST',
             headers: {  
                 'Content-Type': 'application/dns-message'
