@@ -16,11 +16,11 @@ async function handleRequest(request) {
                 'accept': contype,
             }
         });
-    } else if (method == 'POST' && headers.get('Content-Type')=='application/dns-message') {
+    } else if (method == 'POST' && headers.get('Content-Type')=='application/dns-json') {
         return await fetch(doh + '?name=' + searchParams.get('name'), {
             method: 'POST',
             headers: {  
-                'Content-Type': 'application/dns-message'
+                'Content-Type': contype,
             },
             body: await request.arrayBuffer()
         });
